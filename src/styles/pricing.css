@@ -1,51 +1,13 @@
-
-.pricing__hero{ text-align:center; padding:40px 0 14px; }
-.pricing__hero h1{ margin:0 0 8px }
-.pricing__hero p{ color:#98B8C6 }
-
-.carousel{ position:relative; }
-.rail{
-  display:grid;
-  grid-auto-flow: column;
-  grid-auto-columns: min(88vw, 420px);
-  gap:24px;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-  padding: 6px 8px 18px;
-  -webkit-overflow-scrolling: touch;
+.pricing{padding:40px 0}
+.carousel{position:relative; overflow:hidden}
+.track{display:flex; gap:18px; transition:transform .25s ease; will-change:transform; align-items:stretch}
+.card{
+  min-width:320px; max-width:320px;
+  background:linear-gradient(180deg,#172b3a,#102433);
+  border:1px solid rgba(255,255,255,.07); border-radius:22px; padding:22px; color:#e9f3f8;
 }
-.rail::-webkit-scrollbar{ display:none }
-
-.plan{
-  scroll-snap-align: center;
-  border-radius: 16px;
-  background: #0E2A3A;
-  border: 1px solid #214958;
-  box-shadow: 0 8px 24px rgba(0,0,0,.25);
-  padding: 18px;
-  color: #EAF9FF;
-}
-.plan--hl{
-  background: linear-gradient(180deg, rgba(56,189,248,.18), rgba(56,189,248,.06));
-  border-color: rgba(56,189,248,.45);
-}
-.plan__badge{
-  position: absolute; transform: translateY(-12px);
-  background:#38BDF8; color:#06202A; padding:6px 10px; border-radius:999px; font-weight:700; font-size:.8rem
-}
-.plan h3{ margin:8px 0 }
-.plan__price{ color:#98B8C6; margin:0 0 12px }
-.plan__price span{ font-size:36px; font-weight:800; color:#EAF9FF }
-.plan button{ width:100%; margin-bottom:10px }
-.plan ul{ list-style:none; padding:0; margin:10px 0 0 }
-.plan li{ margin:8px 0; position:relative; padding-left:20px }
-.plan li::before{ content:'✓'; position:absolute; left:0; color:#38BDF8; font-weight:900 }
-
-.arrow{
-  position:absolute; top:50%; transform:translateY(-50%);
-  width:40px; height:40px; border-radius:50%; border:0; color:#EAF9FF;
-  background: rgba(255,255,255,.08); display:none
-}
-.arrow.left{ left:4px } .arrow.right{ right:4px }
-@media (min-width: 920px){ .arrow{ display:inline-flex; align-items:center; justify-content:center } }
+.card .logo{opacity:.8; margin:0 0 8px; text-transform:uppercase; letter-spacing:.25em}
+.card .price{font-size:36px; font-weight:800; margin:6px 0}
+.card .sub{color:#a7c0cb; margin-bottom:14px}
+.card .bullets{margin:16px 0 0; padding-left:18px; color:#b9ced7}
+.controls{display:flex; gap:8px; justify-content:center; margin-top:14px}
