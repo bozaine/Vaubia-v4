@@ -1,33 +1,59 @@
-import React from 'react'
-import '../styles/home.css'
+import React from 'react';
+import '../styles/home.css';
 
-export default function Home(){
+export default function Home() {
   return (
-    <section className="home">
-      <div className="container hero">
-        <div className="hero-copy">
-          <span className="kicker">Vaubia • Protégez l’essentiel</span>
-          <h1>Simulez, détectez et décidez <br/> en quelques <span className="accent">secondes</span>.</h1>
-          <p className="sub">Surveillez vos comptes, détectez les fuites, recevez des alertes et suivez votre conformité en un seul endroit.</p>
-          <div className="cta">
-            <a className="btn primary" href="/pricing">Commencer</a>
-            <a className="btn ghost" href="/#demo">Voir une démo</a>
+    <main className="home">
+      {/* Bandeau URL mock + fond dégradé comme le mockup */}
+      <section className="mock-hero">
+        <div className="container">
+          <div className="mock-bar">
+            <span className="dots"><i/><i/><i/></span>
+            <input value="cleanmeter.app/" readOnly aria-label="Barre d’adresse" />
+            <button className="btn-ghost sm">⤓ Download</button>
+          </div>
+
+          <div className="hero-copy">
+            <h1>Minimalistic real-time<br/>system stats monitor</h1>
+            <p>Un moyen plus simple et propre de garder la main sur vos performances.</p>
+            <div className="cta">
+              <a className="btn btn-primary">Download for Windows</a>
+              <a className="btn btn-ghost">Voir une démo</a>
+            </div>
+          </div>
+
+          {/* Image/gradient vague + carte centrale “widget” */}
+          <div className="hero-visual">
+            <div className="wave" />
+            <div className="widget">
+              <div className="row"><span>FPS</span><b>120</b><span>8.3 ms</span></div>
+              <div className="bar" />
+              <div className="row"><span>CPU</span><b>63°c</b></div>
+              <div className="row"><span>GPU</span><b>46°c</b><span>50%</span><span>12.5GB</span></div>
+              <div className="row"><span>RAM</span><b>9.4GB</b></div>
+            </div>
+          </div>
+
+          {/* 3 tuiles alignées */}
+          <div className="tiles">
+            <article>
+              <span className="chip">Valeur</span>
+              <h3>Visibilité claire</h3>
+              <p>Score unifié & rapports compréhensibles pour toute l’équipe.</p>
+            </article>
+            <article>
+              <span className="chip">Sécurité</span>
+              <h3>Attaques bloquées</h3>
+              <p>Détection des tentatives & phishing avec neutralisation automatique.</p>
+            </article>
+            <article>
+              <span className="chip">Conformité</span>
+              <h3>RGPD sans effort</h3>
+              <p>Journal d’audit, registres & modèles prêts à l’emploi.</p>
+            </article>
           </div>
         </div>
-
-        <div className="search-reveal" aria-label="Recherche">
-          <button className="search-button" aria-label="Ouvrir la recherche">
-            <svg viewBox="0 0 24 24" className="icon"><path d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-          </button>
-          <input className="search-input" type="search" placeholder="Rechercher…" />
-        </div>
-      </div>
-
-      <div className="topics container" aria-label="Ce que nous apportons">
-        <article className="tcard"><span className="pill">Valeur</span><h3>Visibilité claire</h3><p>Score unifié et rapports compréhensibles pour toute l’équipe.</p></article>
-        <article className="tcard"><span className="pill">Sécurité</span><h3>Attaques bloquées</h3><p>Détection des tentatives & phishing avec neutralisation automatique.</p></article>
-        <article className="tcard"><span className="pill">Conformité</span><h3>RGPD sans effort</h3><p>Journal d’audit, registres & modèles prêts à l’emploi.</p></article>
-      </div>
-    </section>
-  )
+      </section>
+    </main>
+  );
 }
