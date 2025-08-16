@@ -13,6 +13,17 @@ export default function AppShell() {
           <Link to="/login">Connexion</Link>
         </nav>
       </header>
+      import TopNav from '../components/TopNav.jsx';
+...
+export default function AppShell() {
+  return (
+    <>
+      <TopNav />
+      <Outlet />
+      ...
+    </>
+  );
+}
       <Outlet />
       <footer className="footer">
         <div className="container">© {new Date().getFullYear()} Vaubia</div>
