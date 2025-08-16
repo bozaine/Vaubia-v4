@@ -1,0 +1,43 @@
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.hero-gradient{position:relative;overflow:hidden;background:
+  radial-gradient(120% 80% at 10% 10%, rgba(32,175,199,.25) 0%, rgba(12,29,38,0) 45%),
+  radial-gradient(120% 80% at 90% 0%, rgba(79,132,255,.25) 0%, rgba(12,29,38,0) 50%),
+  linear-gradient(180deg, #0B212B 0%, #07171F 100%);
+border-bottom:1px solid rgba(255,255,255,.06)}
+
+.topnav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#EAF9FF;font-weight:700}
+.brand-mark{width:22px;height:22px;border-radius:50%;
+  background: radial-gradient(60% 60% at 30% 30%, #39E6C8 0%, #1EB8D9 45%, #0A7EA0 100%);
+  box-shadow: 0 0 18px rgba(30,184,217,.35)}
+.brand-name{letter-spacing:.3px}
+
+.menu{display:flex;gap:22px}
+.menu a{color:#98B8C6;text-decoration:none}
+.menu a:hover{color:#EAF9FF}
+
+.right-side{display:flex;align-items:center;gap:12px}
+.btn{padding:8px 14px;border-radius:12px;text-decoration:none;font-weight:600}
+.btn.ghost{border:1px solid rgba(255,255,255,.18);color:#EAF9FF;background:transparent}
+.btn.primary{background:linear-gradient(90deg, #28D7C2, #46C1FF);color:#05171E}
+
+.search{display:flex;align-items:center;gap:8px;position:relative}
+.search input{width:0;opacity:0;transform:translateX(6px);border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);
+  color:#EAF9FF;border-radius:12px;padding:8px 10px;transition:width .24s ease, opacity .18s ease, transform .24s ease}
+.search:hover input,.search:focus-within input{width:180px;opacity:1;transform:none}
+.icon-btn{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:12px;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);color:#EAF9FF}
+
+.burger{width:38px;height:38px;display:none;flex-direction:column;justify-content:center;gap:5px;border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);border-radius:10px}
+.burger span{height:2px;background:#EAF9FF;width:18px;margin:0 auto;border-radius:2px}
+.drawer{display:none;padding:14px;gap:12px;background:#07171F;border-top:1px solid rgba(255,255,255,.08)}
+.drawer a{display:block;padding:10px 6px;color:#EAF9FF;text-decoration:none}
+.drawer.open{display:block}
+
+.desktop-only{display:flex}
+.mobile-only{display:none}
+@media (max-width:900px){
+  .desktop-only{display:none}
+  .mobile-only{display:flex}
+}
