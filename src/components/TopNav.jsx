@@ -1,51 +1,49 @@
-import React, { useState } from 'react'
-import '../styles/nav.css'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/global.css';
+import '../styles/home.css';
 
-export default function TopNav(){
-  const [open, setOpen] = useState(false)
+export default function TopNav() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header className="hero-gradient">
-      <nav className="container topnav" role="navigation" aria-label="Navigation principale">
-        <a className="brand" href="/" aria-label="Vaubia — Accueil">
-          <span className="brand-mark" />
-          <span className="brand-name">Vaubia</span>
-        </a>
+    <>
+      <header className="topbar">
+        <nav className="container nav-row">
+          <Link className="brand" to="/">Vaubia</Link>
 
-        <ul className="menu desktop-only" role="menubar">
-          <li role="none"><a role="menuitem" href="/#demo">Démo</a></li>
-          <li role="none"><a role="menuitem" href="/#legal">Légal</a></li>
-          <li role="none"><a role="menuitem" href="/#contact">Contact</a></li>
-          <li role="none"><a role="menuitem" href="/pricing">Tarifs</a></li>
-        </ul>
-
-        <div className="right-side">
           <form className="search" role="search" onSubmit={(e)=>e.preventDefault()}>
-            <button type="submit" aria-label="Rechercher" className="icon-btn">
+            <button aria-label="Rechercher" type="submit">
               <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="11" cy="11" r="7" stroke="currentColor" fill="none" strokeWidth="2"/>
-                <line x1="16.6" y1="16.6" x2="22" y2="22" stroke="currentColor" strokeWidth="2" />
+                <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" fill="none"/>
+                <line x1="16.65" y1="16.65" x2="22" y2="22" stroke="currentColor" strokeWidth="2"/>
               </svg>
             </button>
-            <input type="search" placeholder="Rechercher…" aria-label="Rechercher" />
+            <input type="search" placeholder="Rechercher…" aria-label="Rechercher"/>
           </form>
 
-          <a className="btn ghost desktop-only" href="/login">Connexion</a>
-          <a className="btn primary desktop-only" href="/pricing">Inscription</a>
+          <div className="desktop-links">
+            <Link to="/pricing">Tarifs</Link>
+            <Link to="/login" className="btn btn-primary">Connexion</Link>
+          </div>
 
-          <button className="burger mobile-only" aria-label="Ouvrir le menu" onClick={()=>setOpen(v=>!v)}>
-            <span/><span/><span/>
-          </button>
-        </div>
-      </nav>
+          <button className="burger" aria-label="Menu" onClick={()=>setOpen(true)}>☰</button>
+        </nav>
+      </header>
 
-      <div className={`drawer mobile-only ${open ? 'open' : ''}`}>
-        <a href="/#demo" onClick={()=>setOpen(false)}>Démo</a>
-        <a href="/#legal" onClick={()=>setOpen(false)}>Légal</a>
-        <a href="/#contact" onClick={()=>setOpen(false)}>Contact</a>
-        <hr/>
-        <a href="/login" onClick={()=>setOpen(false)}>Connexion</a>
-        <a href="/pricing" onClick={()=>setOpen(false)}>Inscription</a>
-      </div>
-    </header>
-  )
+      {/* Overlay + drawer */}
+      <div className={`overlay ${open ? 'show' : ''}`} onClick={()=>setOpen(false)} />
+      <aside className={`drawer ${open ? 'open' : ''}`} aria-hidden={!open}>
+        <button className="close" aria-label="Fermer" onClick={()=>setOpen(false)}>×</button>
+        <nav className="drawer-nav">
+          <Link to="/" onClick={()=>setOpen(false)}>Accueil</Link>
+          <Link to="/pricing" onClick={()=>setOpen(false)}>Tarifs</Link>
+          <Link to="/login" onClick={()=>setOpen(false)}>Connexion</Link>
+          <a href="/legal.html">Mentions légales</a>
+          <a href="/politique-confidentialite.html">Confidentialité</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
+      </aside>
+    </>
+  );
 }
