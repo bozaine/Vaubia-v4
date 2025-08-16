@@ -1,26 +1,29 @@
+// src/pages/Login.jsx
 import React, { useState } from 'react';
-import '../styles/global.css';
 
 export default function Login() {
-  const [id, setId] = useState('');
+  const [email, setEmail] = useState('');
   const [pwd, setPwd] = useState('');
-  const onSubmit = (e) => {
+  const [err, setErr] = useState('');
+
+  const submit = (e) => {
     e.preventDefault();
-    if (id === 'admin' && pwd === 'admin') {
-      localStorage.setItem('session', 'ok');
+    if ((email === 'admin' || email === 'admin@vaubia.com') && pwd === 'admin') {
+      localStorage.setItem('vaubia_session', 'ok');
       window.location.href = '/dashboard';
     } else {
-      alert('Identifiants invalides');
+      setErr('Identifiants invalides (essayez admin / admin)');
     }
   };
 
   return (
-    <main className="container" style={{padding:'40px 16px'}}>
+    <main style={{padding:'24px'}}>
       <h1>Connexion</h1>
-      <form onSubmit={onSubmit} style={{display:'grid', gap:12, maxWidth:360}}>
-        <input placeholder="Identifiant" value={id} onChange={e=>setId(e.target.value)} />
-        <input type="password" placeholder="Mot de passe" value={pwd} onChange={e=>setPwd(e.target.value)} />
-        <button className="btn btn-primary" type="submit">Se connecter</button>
+      <form onSubmit={submit} style={{display:'grid',gap:12,maxWidth:360}}>
+        <input placeholder="Identifiant" value={email} onChange={e=>setEmail(e.target.value)} />
+        <input placeholder="Mot de passe" type="password" value={pwd} onChange={e=>setPwd(e.target.value)} />
+        <button type="submit">Se connecter</button>
+        {err && <p style={{color:'#ff6b6b'}}>{err}</p>}
       </form>
     </main>
   );
