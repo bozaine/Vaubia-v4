@@ -1,18 +1,4 @@
-.pricing-head{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:16px}
-.switch{
-  display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.06);
-  padding:6px; border-radius:999px;
-}
-.switch button{
-  border:0; background:transparent; color:#c8d7ff; padding:8px 14px; border-radius:999px; font-weight:700
-}
-.switch button.active{background:#fff; color:#0a0f22}
-.badge{-webkit-text-size-adjust:100%; background:linear-gradient(135deg,#17d796,#00D0FF); color:#04101a; padding:6px 10px; border-radius:999px; font-weight:800}
-
-.carousel{display:flex; gap:18px; overflow-x:auto; padding:8px 2px 18px; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch}
-.plan{scroll-snap-align:start; min-width: 320px; flex:0 0 320px; padding:18px 18px 14px; border-radius:18px; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08)}
-.plan h3{margin:0 0 12px}
-.price{font-size:42px; font-weight:900; letter-spacing:-.5px}
-.features-list{list-style:none; padding:0; margin:12px 0 16px}
-.features-list li{display:flex; gap:10px; margin:8px 0; color:#e8f1ff}
-.features-list svg{flex:0 0 18px}
+.tabs{display:inline-flex;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:6px}
+.tab{padding:.5rem 1rem;border-radius:999px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--brand)}
+.kicker{color:var(--muted);font-size:.95rem}

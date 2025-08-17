@@ -1,36 +1,34 @@
-import React, { useState } from 'react'
-import { Outlet, Link, NavLink } from 'react-router-dom'
+import React from 'react'
+import { Link, Outlet } from 'react-router-dom'
 import '../styles/shell.css'
+import logo from '../assets/logo.svg'
 
 export default function AppShell(){
-  const [open, setOpen] = useState(false)
-  const close = () => setOpen(false)
-
   return (
     <>
-      <header className='topbar'>
-        <div className='container'>
-          <Link to='/' className='brand' onClick={close}>
-            <img src='/favicon.svg' alt='Vaubia' /><span>Vaubia</span>
+      <header className="topbar">
+        <div className="container topnav">
+          <Link to="/" className="brand">
+            <img src={logo} alt="Vaubia logo"/>
+            <span>Vaubia</span>
           </Link>
-          <nav className={`nav ${open ? 'open' : ''}`}>
-            <NavLink to='/' onClick={close} end>Accueil</NavLink>
-            <NavLink to='/pricing' onClick={close}>Tarifs</NavLink>
-            <NavLink to='/dashboard' onClick={close}>Dashboard</NavLink>
-            <NavLink to='/login' className='btn' onClick={close}>Se connecter</NavLink>
+          <nav className="navlinks">
+            <Link to="/pricing">Tarifs</Link>
+            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/login" className="btn">Connexion</Link>
           </nav>
-          <button className='burger' aria-label='Ouvrir le menu' onClick={()=>setOpen(v=>!v)}>
-            <span></span><span></span><span></span>
-          </button>
         </div>
       </header>
 
-      <main className='page'>
-        <Outlet />
+      <main>
+        <Outlet/>
       </main>
 
-      <footer className='footer'>
-        <div className='container'>© {new Date().getFullYear()} Vaubia — Tous droits réservés.</div>
+      <footer className="footer">
+        <div className="container" style={{display:'flex',justifyContent:'space-between'}}>
+          <span>© {new Date().getFullYear()} Vaubia</span>
+          <span><a href="/legal">Mentions légales</a></span>
+        </div>
       </footer>
     </>
   )
