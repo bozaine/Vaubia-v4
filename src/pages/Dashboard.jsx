@@ -1,14 +1,14 @@
 import React from 'react'
+
 export default function Dashboard(){
   return (
-    <section className="container">
-      <h2>Tableau de bord</h2>
-      <div className="grid">
-        <div className="card">Avis (semaine) : 32</div>
-        <div className="card">Réponses IA : 18</div>
-        <div className="card">Posts publiés : 12</div>
-        <div className="card">Satisfaction : 4.7 ★</div>
+    <main className="container">
+      <h1>Tableau de bord</h1>
+      <div className="grid" style={{gridTemplateColumns:'repeat(3,1fr)'}}>
+        <div className="panel card">Volume messages (jour)</div>
+        <div className="panel card">SLA moyen</div>
+        <div className="panel card">Satisfaction</div>
       </div>
-    </section>
+    </main>
   )
 }

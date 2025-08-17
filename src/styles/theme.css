@@ -1,4 +1,22 @@
+
 :root{
-  --accent: #05ffe0;
-  --accent2: #8b5bff;
+  --bg: #0B1220;
+  --panel: #1B2233;
+  --muted: #8CA0B3;
+  --text: #EAF2FF;
+  --primary: #00E0FF;  /* bleu vaubia */
+  --primary-2: #7C4DFF; /* violet vaubia */
+  --accent: #26F7C7;    /* mint */
+  --danger: #FF5470;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0,0,0,.25);
 }
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue','Noto Sans',sans-serif}
+a{color:var(--text);text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.btn{border:0;background:linear-gradient(90deg,var(--primary),var(--primary-2));color:#06111F;padding:12px 20px;border-radius:999px;font-weight:700;cursor:pointer;box-shadow:var(--shadow)}
+.panel{background:linear-gradient(180deg,#1b2233,#141b29);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06)}
+.grid{display:grid;gap:24px}
+.hidden{display:none}

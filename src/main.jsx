@@ -10,14 +10,13 @@ import Dashboard from './pages/Dashboard.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 import './styles/global.css'
-import './styles/theme.css'
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route element={<AppShell />}>
-          <Route index element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />

@@ -1,2 +1,6 @@
-.home{padding-block:56px;text-align:center}
-.cta-row{display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+
+@import './theme.css';
+.hero-cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+.features{margin-top:28px}
+.features .card{display:flex;gap:14px;align-items:flex-start}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(38,247,199,.12);border:1px solid rgba(38,247,199,.35);color:var(--accent);font-weight:700;font-size:.85rem}

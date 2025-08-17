@@ -1,43 +1,38 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import '../styles/pricing.css'
 
-const plans = [
-  { id: 'basic', title: 'Essentiel', price: 49, yearly: true, features: ['Multidiffusion de base', '10 posts / mois', 'Support email'] },
-  { id: 'pro', title: 'Pro', price: 89, yearly: true, badge: '-17% annuel', features: ['Multidiffusion avancée', 'IA réponses aux avis', 'Planificateur de posts', 'Support prioritaire'] },
-  { id: 'max', title: 'Entreprise', price: 149, yearly: true, features: ['Tout Pro', 'SLA et SSO', 'Onboarding dédié'] }
-]
-
-function Card({ p }){
+function Tier({name, price, perks, best}){
   return (
-    <article className="card">
-      {p.badge && <div className="badge">{p.badge}</div>}
-      <h3 className="plan">{p.title}</h3>
-      <div className="price"><span className="amount">{p.price}</span>€<span className="per">/mois</span></div>
-      <ul className="features">
-        {p.features.map((f,i)=><li key={i}>✓ {f}</li>)}
+    <div className="panel tier">
+      <header>
+        <h3 style={{margin:0}}>{name}</h3>
+        {best && <span className="ribbon">-17% annuel</span>}
+      </header>
+      <div className="price">{price}</div>
+      <button className="btn" style={{width:'100%'}}>Souscrire</button>
+      <ul className="perks">
+        {perks.map((p,i)=>(<li key={i}>{p}</li>))}
       </ul>
-      <button className="btn">Souscrire</button>
-    </article>
+    </div>
   )
 }
 
 export default function Pricing(){
-  const trackRef = useRef(null)
-
-  useEffect(() => {
-    const track = trackRef.current
-    if (!track) return
-    // Dupliquer pour illusion d'infini
-    track.innerHTML += track.innerHTML
-  }, [])
-
+  const perks = [
+    "Intégration WhatsApp & SMS",
+    "Boîte de réception unifiée",
+    "Assistant IA entraîné",
+    "Statistiques & export",
+  ]
   return (
-    <section className="container pricing">
-      <h2 className="title">Des options simples et transparentes</h2>
-      <div className="carousel" ref={trackRef}>
-        {plans.map(p => <Card key={p.id} p={p} />)}
+    <main className="container pricing">
+      <h1>Tarifs simples pour grandir</h1>
+      <p className="lead">Mensuel ou annuel (-17%). Modifiez quand vous voulez.</p>
+      <div className="tiers">
+        <Tier name="Essentiel" price="49 € / mois" perks={perks}/>
+        <Tier name="Pro" price="99 € / mois" perks={perks} best/>
+        <Tier name="Entreprise" price="Nous contacter" perks={[...perks,"SLA & SSO","Manager dédié"]}/>
       </div>
-      <p className="hint">Swipe gauche/droite pour faire défiler — défilement infini.</p>
-    </section>
+    </main>
   )
 }
