@@ -1,31 +1,16 @@
-@import './theme.css';
-
-/* top nav */
-.topbar{
-  position:sticky;top:0;z-index:50;
-  backdrop-filter: blur(10px);
-  background: linear-gradient(180deg, rgba(10,16,27,.75), rgba(10,16,27,.35));
-  border-bottom:1px solid rgba(255,255,255,.06);
+.hero-gradient{
+  position:sticky;top:0;z-index:40;
+  background: radial-gradient(1200px 300px at 20% -40%, rgba(5,255,224,.25), transparent 60%),
+              radial-gradient(1200px 300px at 80% -40%, rgba(139,91,255,.25), transparent 60%),
+              rgba(10,15,28,.7);
+  backdrop-filter: blur(8px);
+  border-bottom:1px solid var(--ring);
 }
-.topbar-inner{display:flex;align-items:center;gap:16px;height:64px}
-.logo{display:flex;align-items:center;gap:.6rem;font-weight:800;letter-spacing:.2px}
-.logo-badge{width:28px;height:28px;border-radius:8px;background:conic-gradient(from 45deg,#12b3a8,#4c9bf5,#a96bf5,#12b3a8)}
-.nav{margin-left:auto;display:flex;align-items:center;gap:16px}
-.nav a{padding:.5rem .8rem;border-radius:10px}
-.nav .active{background:rgba(255,255,255,.06)}
-.menu-btn{display:none}
-@media (max-width: 960px){
-  .nav{display:none}
-  .menu-btn{display:inline-flex;margin-left:auto}
-}
-
-/* layout */
-.layout{display:grid;grid-template-columns:240px 1fr;gap:24px}
-@media (max-width: 960px){
-  .layout{grid-template-columns:1fr}
-}
-.sidenav{position:sticky;top:80px;height:calc(100dvh - 92px);padding:12px;overflow:auto}
-.sidenav a{display:flex;padding:.7rem .8rem;border-radius:10px;color:var(--muted);text-decoration:none}
-.sidenav a:hover{background:rgba(255,255,255,.05);color:var(--text)}
-.sidenav .current{background:rgba(255,255,255,.08);color:var(--text);font-weight:700}
-.content{min-height:60dvh}
+.topnav{display:flex;align-items:center;gap:16px}
+.brand{font-weight:900;letter-spacing:.3px}
+.menu{display:flex;gap:14px;list-style:none;margin:0;padding:0}
+.menu a{padding:8px 10px;border-radius:10px;color:var(--muted)}
+.menu a.active{background:rgba(124,92,255,.15);color:white}
+.page{min-height:calc(100vh - 140px);}
+.form{display:grid;gap:12px;max-width:360px}
+input{background:#0f1526;border:1px solid var(--ring);border-radius:10px;color:var(--text);padding:10px 12px}

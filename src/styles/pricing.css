@@ -1,29 +1,21 @@
-@import './theme.css';
-
-/* switch */
-.switch{
-  display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.08);
-  background:var(--panel-2);padding:6px;border-radius:999px;gap:6px
+.pricing{padding-block:32px}
+.carousel{
+  margin-top:12px;
+  display:flex; gap:16px;
+  overflow-x:auto; padding-bottom:8px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
-.switch button{border:0;border-radius:999px;padding:.5rem 1rem;background:transparent;color:var(--muted);cursor:pointer}
-.switch .on{background:var(--primary);color:#052b27}
-
-/* carousel */
-.pricing-carousel{position:relative;overflow:hidden}
-.strip{
-  display:flex; gap:16px; padding:12px; scroll-behavior:smooth;
-  overflow:auto; scroll-snap-type:x mandatory;
+.carousel .card{
+  min-width: 300px; scroll-snap-align: start; position:relative;
 }
-.strip::-webkit-scrollbar{display:none}
-.card-price{
-  scroll-snap-align:center;
-  min-width:320px; max-width:340px; flex: 0 0 auto; 
-  padding:22px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02)), var(--panel);
-  border:1px solid rgba(255,255,255,.06);
-  box-shadow:var(--card-shadow);
+.badge{
+  position:absolute; top:12px; right:12px;
+  background:linear-gradient(90deg,var(--primary),var(--primary-2));
+  color:#021610; font-weight:800; padding:4px 10px; border-radius:999px; font-size:12px;
 }
-.card-price .head{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px}
-.big{font-size:56px; font-weight:800}
-.sub{color:var(--muted)}
-.list{margin:12px 0 0; padding-left:16px; color:var(--text)}
-.save{margin-left:8px}
+.plan{margin:6px 0 4px 0}
+.price{font-size:28px;display:flex;align-items:baseline;gap:6px}
+.price .amount{font-size:42px;font-weight:900}
+.features{color:var(--muted);display:grid;gap:6px;margin:14px 0 18px 0;padding-left:0;list-style:none}
+.hint{color:var(--muted);margin-top:10px;text-align:center}

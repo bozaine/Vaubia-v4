@@ -1,22 +1,19 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import '../styles/shell.css'
+import '../styles/home.css'
 
-export default function TopNav(){
+export default function TopNav() {
   return (
-    <div className="topbar">
-      <div className="container topbar-inner">
-        <Link className="logo link" to="/">
-          <span className="logo-badge"></span> Vaubia
-        </Link>
-        <nav className="nav">
-          <NavLink to="/pricing" className={({isActive})=> isActive ? 'link active' : 'link'}>Tarifs</NavLink>
-          <NavLink to="/login" className={({isActive})=> isActive ? 'link active' : 'link'}>Connexion</NavLink>
-          <NavLink to="/dashboard" className={({isActive})=> isActive ? 'link active' : 'link'}>Dashboard</NavLink>
-          <a className="btn" href="#demo">Voir une démo</a>
-        </nav>
-        <button className="btn menu-btn">Menu</button>
-      </div>
-    </div>
+    <header className="hero-gradient">
+      <nav className="container topnav">
+        <Link to="/" className="brand">Vaubia</Link>
+        <ul className="menu">
+          <li><NavLink to="/">Accueil</NavLink></li>
+          <li><NavLink to="/pricing">Tarifs</NavLink></li>
+          <li><NavLink to="/dashboard">Tableau de bord</NavLink></li>
+        </ul>
+        <Link to="/login" className="btn">Se connecter</Link>
+      </nav>
+    </header>
   )
 }
