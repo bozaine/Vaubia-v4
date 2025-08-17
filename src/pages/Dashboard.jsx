@@ -1,34 +1,19 @@
-// src/pages/Dashboard.jsx
-import React from 'react';
+import React from 'react'
 
-export default function Dashboard() {
-  const logout = () => {
-    localStorage.removeItem('vaubia_session');
-    window.location.href = '/login';
-  };
-
+export default function Dashboard(){
   return (
-    <main style={{padding:'24px'}}>
-      <h1>Dashboard</h1>
-      <p>Bienvenue 👋 — interface mock.</p>
-
-      <section style={{marginTop:'16px',display:'grid',gap:'12px'}}>
-        <div style={{padding:'16px',border:'1px solid #1f2b36',borderRadius:12,background:'#0b1620'}}>
-          <strong>Score sécurité</strong>
-          <div style={{marginTop:8}}>78/100</div>
-        </div>
-        <div style={{padding:'16px',border:'1px solid #1f2b36',borderRadius:12,background:'#0b1620'}}>
-          <strong>Dernières alertes</strong>
-          <ul style={{marginTop:8, paddingLeft:18}}>
-            <li>Connexion suspecte (FR) — atténuée</li>
-            <li>Phishing détecté — bloqué</li>
-          </ul>
-        </div>
-      </section>
-
-      <button onClick={logout} style={{marginTop:'20px'}}>
-        Se déconnecter
-      </button>
-    </main>
-  );
+    <section className="section container">
+      <h1>Tableau de bord</h1>
+      <p className="subtitle">Mock de données (à remplacer par les vraies API).</p>
+      <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:16}}>
+        {['Disponibilité','Incidents','Temps de réponse'].map((t,i)=>(
+          <div className="card" key={i} style={{padding:18}}>
+            <div className="badge">{t}</div>
+            <h2>{['99.98%','0','120ms'][i]}</h2>
+            <div className="subtitle">Dernières 24h</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
 }

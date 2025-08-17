@@ -1,0 +1,31 @@
+@import './theme.css';
+
+/* top nav */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(10,16,27,.75), rgba(10,16,27,.35));
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.topbar-inner{display:flex;align-items:center;gap:16px;height:64px}
+.logo{display:flex;align-items:center;gap:.6rem;font-weight:800;letter-spacing:.2px}
+.logo-badge{width:28px;height:28px;border-radius:8px;background:conic-gradient(from 45deg,#12b3a8,#4c9bf5,#a96bf5,#12b3a8)}
+.nav{margin-left:auto;display:flex;align-items:center;gap:16px}
+.nav a{padding:.5rem .8rem;border-radius:10px}
+.nav .active{background:rgba(255,255,255,.06)}
+.menu-btn{display:none}
+@media (max-width: 960px){
+  .nav{display:none}
+  .menu-btn{display:inline-flex;margin-left:auto}
+}
+
+/* layout */
+.layout{display:grid;grid-template-columns:240px 1fr;gap:24px}
+@media (max-width: 960px){
+  .layout{grid-template-columns:1fr}
+}
+.sidenav{position:sticky;top:80px;height:calc(100dvh - 92px);padding:12px;overflow:auto}
+.sidenav a{display:flex;padding:.7rem .8rem;border-radius:10px;color:var(--muted);text-decoration:none}
+.sidenav a:hover{background:rgba(255,255,255,.05);color:var(--text)}
+.sidenav .current{background:rgba(255,255,255,.08);color:var(--text);font-weight:700}
+.content{min-height:60dvh}

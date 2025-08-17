@@ -1,33 +1,22 @@
-import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
-import '../styles/global.css';
+import React from 'react'
+import { Outlet } from 'react-router-dom'
+import TopNav from '../components/TopNav.jsx'
+import SideNav from '../components/SideNav.jsx'
+import '../styles/shell.css'
 
-export default function AppShell() {
+export default function AppShell(){
   return (
     <>
-      <header className="topbar">
-        <nav className="container">
-          <Link className="brand" to="/">Vaubia</Link>
-          <div className="spacer" />
-          <Link to="/pricing">Tarifs</Link>
-          <Link to="/login">Connexion</Link>
-        </nav>
-      </header>
-      import TopNav from '../components/TopNav.jsx';
-...
-export default function AppShell() {
-  return (
-    <>
-      <TopNav />
-      <Outlet />
-      ...
-    </>
-  );
-}
-      <Outlet />
-      <footer className="footer">
-        <div className="container">© {new Date().getFullYear()} Vaubia</div>
+      <TopNav/>
+      <main>
+        <div className="container layout">
+          <SideNav/>
+          <section className="content"><Outlet/></section>
+        </div>
+      </main>
+      <footer>
+        © Vaubia — {new Date().getFullYear()}
       </footer>
     </>
-  );
+  )
 }

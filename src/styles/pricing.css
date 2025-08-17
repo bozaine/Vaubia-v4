@@ -1,13 +1,29 @@
-.pricing{padding:40px 0}
-.carousel{position:relative; overflow:hidden}
-.track{display:flex; gap:18px; transition:transform .25s ease; will-change:transform; align-items:stretch}
-.card{
-  min-width:320px; max-width:320px;
-  background:linear-gradient(180deg,#172b3a,#102433);
-  border:1px solid rgba(255,255,255,.07); border-radius:22px; padding:22px; color:#e9f3f8;
+@import './theme.css';
+
+/* switch */
+.switch{
+  display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.08);
+  background:var(--panel-2);padding:6px;border-radius:999px;gap:6px
 }
-.card .logo{opacity:.8; margin:0 0 8px; text-transform:uppercase; letter-spacing:.25em}
-.card .price{font-size:36px; font-weight:800; margin:6px 0}
-.card .sub{color:#a7c0cb; margin-bottom:14px}
-.card .bullets{margin:16px 0 0; padding-left:18px; color:#b9ced7}
-.controls{display:flex; gap:8px; justify-content:center; margin-top:14px}
+.switch button{border:0;border-radius:999px;padding:.5rem 1rem;background:transparent;color:var(--muted);cursor:pointer}
+.switch .on{background:var(--primary);color:#052b27}
+
+/* carousel */
+.pricing-carousel{position:relative;overflow:hidden}
+.strip{
+  display:flex; gap:16px; padding:12px; scroll-behavior:smooth;
+  overflow:auto; scroll-snap-type:x mandatory;
+}
+.strip::-webkit-scrollbar{display:none}
+.card-price{
+  scroll-snap-align:center;
+  min-width:320px; max-width:340px; flex: 0 0 auto; 
+  padding:22px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02)), var(--panel);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:var(--card-shadow);
+}
+.card-price .head{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px}
+.big{font-size:56px; font-weight:800}
+.sub{color:var(--muted)}
+.list{margin:12px 0 0; padding-left:16px; color:var(--text)}
+.save{margin-left:8px}
