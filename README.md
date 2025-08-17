@@ -1,18 +1,15 @@
-# Vaubia (clean bundle)
+# Vaubia v5 – base propre (Vite + React + Router)
 
-Projet React + Vite prêt pour Vercel.
+- Mobile top-nav avec menu burger, styles responsive
+- Pages : Accueil, Tarifs (carousel swipe + -17% annuel), Login, Dashboard, 404
+- SEO & Assets : favicon, robots.txt, sitemap.xml, metadonnées
+- Config Vercel (SPA rewrite) – push GitHub → déploiement auto
 
-## Démarrer en local
+## Scripts
+- `npm run dev` : dev server
+- `npm run build` : build prod
+- `npm run preview` : prévisualisation du build
 
-```bash
-npm i
-npm run dev
-```
-
-## Déployer sur Vercel
-
-- Importez ce repo sur GitHub
-- Vercel → New Project → Import
-- Framework: Vite  | Build: `npm run build` | Output: `dist/`
-- Ajoutez vos domaines (vaubia.com, www.vaubia.com)
-```
+## Déploiement Vercel
+Crée un projet lié à ton repo GitHub. Vercel détecte Vite via `package.json`.
+Le `vercel.json` inclut les rewrites pour router côté client (`/pricing`, `/dashboard`, etc.).
