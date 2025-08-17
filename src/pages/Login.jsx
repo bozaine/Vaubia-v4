@@ -1,16 +1,13 @@
-import React from 'react'
-import '../styles/global.css'
+import React from 'react';
 export default function Login(){
-  return (<section className="section">
-    <div className="card" style={{maxWidth:420, margin:'0 auto'}}>
+  return (
+    <div>
       <h1>Connexion</h1>
-      <p>Entrez votre e‑mail pour recevoir un lien magique.</p>
-      <form onSubmit={e=>e.preventDefault()}>
-        <label className="visually-hidden" htmlFor="email">E‑mail</label>
-        <input id="email" type="email" required placeholder="you@company.com"
-          style={{width:'100%',padding:'12px 14px',borderRadius:12,border:'1px solid rgba(255,255,255,.14)',background:'rgba(255,255,255,.04)',color:'var(--text)'}}/>
-        <button className="btn" style={{marginTop:12,width:'100%'}}>Recevoir le lien</button>
+      <form method="post" action="/api/subscribe" style={{display:'grid', gap:10, maxWidth:360}}>
+        <input name="email" type="email" placeholder="Email" required style={{height:44, borderRadius:10, border:'1px solid var(--border)', background:'var(--panel)', color:'var(--text)', padding:'0 12px'}}/>
+        <input name="password" type="password" placeholder="Mot de passe" required style={{height:44, borderRadius:10, border:'1px solid var(--border)', background:'var(--panel)', color:'var(--text)', padding:'0 12px'}}/>
+        <button className="btn btn-primary" type="submit">Se connecter</button>
       </form>
     </div>
-  </section>)
+  );
 }

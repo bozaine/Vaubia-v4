@@ -1,31 +1,48 @@
-import React from 'react'
-import '../styles/home.css'
+import React from 'react';
+import '../styles/home.css';
+
 export default function Home(){
-  return (<section className="hero">
-    <div className="grid">
-      <div className="left">
-        <span className="badge">Nouvelle version</span>
-        <h1>Assistants IA & Automations pour la croissance</h1>
-        <p>On connecte vos canaux (Google, réseaux sociaux, SMS) pour gagner du temps et des clients. Design basé sur votre charte (violet / vert).</p>
-        <div style={{display:'flex', gap:12, marginTop:12}}>
-          <a className="btn" href="/pricing">Voir les tarifs</a>
-          <a className="btn ghost" href="/login">Se connecter</a>
+  return (
+    <div className="home">
+      <section className="hero">
+        <p className="badge">Pare-feu de la vie</p>
+        <h1>Protégez votre identité : email, téléphone & présence en ligne</h1>
+        <p className="sub">
+          Vaubia masque vos coordonnées, bloque les fuites de données et centralise vos demandes RGPD.
+          Un seul tableau de bord pour reprendre le contrôle.
+        </p>
+        <div className="cta">
+          <a className="btn btn-primary" href="/pricing">Voir les tarifs</a>
+          <a className="btn btn-ghost" href="/dashboard">Tableau de bord démo</a>
         </div>
-        <div className="kpis">
-          <div className="kpi"><div>Leads générés</div><strong>+42%</strong></div>
-          <div className="kpi"><div>Temps de réponse</div><strong>−63%</strong></div>
-        </div>
-      </div>
-      <div className="right">
-        <div className="card">
-          <h3 style={{marginBottom:8}}>Demo express</h3>
-          <p>Réservez 15 min. On plug une source et on vous montre des gains concrets.</p>
-          <div style={{display:'flex', gap:10, marginTop:8}}>
-            <button className="btn">Réserver</button>
-            <button className="btn ghost">Doc produit</button>
-          </div>
-        </div>
-      </div>
+      </section>
+
+      <section className="pillars">
+        <article className="card">
+          <h3>Masques & alias</h3>
+          <ul>
+            <li>Alias email jetables</li>
+            <li>Numéros relais (anti-spam)</li>
+            <li>Réponses filtrées</li>
+          </ul>
+        </article>
+        <article className="card">
+          <h3>Scan & alertes fuites</h3>
+          <ul>
+            <li>Détection de leaks (dark & clear web)</li>
+            <li>Alerte en temps réel</li>
+            <li>Plan d’action en 1-clic</li>
+          </ul>
+        </article>
+        <article className="card">
+          <h3>Contrôle RGPD</h3>
+          <ul>
+            <li>Demandes d’accès/suppression</li>
+            <li>Historique centralisé</li>
+            <li>Preuves & export PDF</li>
+          </ul>
+        </article>
+      </section>
     </div>
-  </section>)
+  );
 }

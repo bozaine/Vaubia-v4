@@ -1,7 +1,7 @@
 {
-  "name": "vaubia",
-  "private": true,
+  "name": "vaubia-firewall",
   "version": "1.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,10 +11,10 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.23.0"
+    "react-router-dom": "^6.26.1"
   },
   "devDependencies": {
     "vite": "^5.4.0",
-    "@vitejs/plugin-react": "^4.2.0"
+    "@vitejs/plugin-react": "^4.3.1"
   }
 }

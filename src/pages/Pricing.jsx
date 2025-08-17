@@ -1,48 +1,42 @@
-import React, { useState } from 'react'
-import '../styles/pricing.css'
-const features = [
-  'Multi-diffusion Google & réseaux',
-  'Optimisation fiche Google',
-  'Posts planifiés IA',
-  'Centralisation des messages',
-  'Réponses assistées IA',
-  'Support 24/7'
-]
-function Plan({title, price, period, popular=false, save=null}){
-  return (<div className={`plan card ${popular?'pop':''}`}>
-    <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:6}}>
-      <span className={`badge ${popular?'':'neg'}`}>{popular?'Recommandé':'Essentiel'}</span>
-      {save && <span className="save">-{save}%</span>}
-    </div>
-    <h3 style={{marginBottom:2}}>{title}</h3>
-    <div className="price">{price} <span style={{fontSize:14, color:'var(--muted)'}}>/ {period}</span></div>
-    <ul>{features.map(f => <li key={f}>{f}</li>)}</ul>
-    <div style={{marginTop:14, display:'flex', gap:10}}>
-      <button className="btn">Souscrire</button>
-      <button className="btn ghost">Essai</button>
-    </div>
-  </div>)
-}
+import React, { useMemo, useState } from 'react';
+import '../styles/pricing.css';
+
+const PLANS = [
+  { id:'essential', name:'Essential', priceM:7, features:['Alias email illimités','1 numéro relais','Scan mensuel']},
+  { id:'pro', name:'Pro', priceM:14, features:['Alias + numéros illimités','Scan hebdo','Priorité support']},
+  { id:'business', name:'Business', priceM:29, features:['Multi-utilisateurs','Conformité avancée','API']},
+];
+
 export default function Pricing(){
-  const [yearly, setYearly] = useState(true)
-  return (<section className="section">
-    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:10}}>
-      <div>
-        <div className="badge">Tarification simple</div>
-        <h1 style={{marginTop:8}}>Choisissez votre rythme</h1>
+  const [cycle, setCycle] = useState('annual'); // annual = -17%
+  const cards = useMemo(()=>[...PLANS, ...PLANS],[]); // duplication pour swipe long
+  const price = (pM)=> cycle==='annual' ? Math.round(pM*12*0.83) : pM;
+
+  return (
+    <div className="pricing">
+      <h1>Tarifs</h1>
+      <div className="switch">
+        <label><input type="radio" name="cycle" checked={cycle==='monthly'} onChange={()=>setCycle('monthly')}/> Mensuel</label>
+        <label><input type="radio" name="cycle" checked={cycle==='annual'} onChange={()=>setCycle('annual')}/> Annuel <span className="pill">-17%</span></label>
       </div>
-      <label className="switch">
-        <span>Mensuel</span>
-        <input type="checkbox" checked={yearly} onChange={e=>setYearly(e.target.checked)} aria-label="Basculer annuel" />
-        <span>Annuel</span>
-      </label>
+
+      <div className="cards">
+        {cards.map((p, i)=>(
+          <div key={p.id+'-'+i} className="card">
+            <h3>{p.name}</h3>
+            <div className="price">
+              {cycle==='annual' ? price(p.priceM) : p.priceM}
+              <span style={{fontSize:14, color:'var(--muted)'}}>€/{cycle==='annual'?'an':'mois'}</span>
+            </div>
+            <ul className="features">
+              {p.features.map(f=><li key={f}>{f}</li>)}
+            </ul>
+            <div style={{height:12}}/>
+            <a className="btn btn-primary" href="/login">Souscrire</a>
+          </div>
+        ))}
+      </div>
+      <p style={{color:'var(--muted)', marginTop:12}}>Astuce : glissez horizontalement pour parcourir les offres.</p>
     </div>
-    <div className="scroller">
-      <Plan title="Starter" price={yearly?'49€':'59€'} period={yearly?'mois, fact. à l’année':'mois'} />
-      <Plan title="Business" price={yearly?'119€':'139€'} period={yearly?'mois, fact. à l’année':'mois'} popular save={17} />
-      <Plan title="Scale" price={yearly?'249€':'279€'} period={yearly?'mois, fact. à l’année':'mois'} />
-      <Plan title="Starter" price={yearly?'49€':'59€'} period={yearly?'mois, fact. à l’année':'mois'} />
-      <Plan title="Business" price={yearly?'119€':'139€'} period={yearly?'mois, fact. à l’année':'mois'} popular save={17} />
-    </div>
-  </section>)
+  );
 }
