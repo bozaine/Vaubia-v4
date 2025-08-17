@@ -1,0 +1,187 @@
+/* src/styles/pricing.css */
+/* S’appuie sur tes variables de thème existantes */
+:root {
+  /* Si certaines manquent dans ton theme.css, ces fallbacks évitent une page blanche */
+  --bg: var(--bg, #0a1220);
+  --text: var(--text, #e6ecf5);
+  --muted: var(--muted, #9fb1c6);
+  --card: var(--card, #161f31);
+  --card-2: var(--card-2, #1b2437);
+  --primary: var(--primary, #00e5c1);
+  --primary-600: var(--primary-600, #00caa9);
+  --ring: var(--ring, rgba(0,229,193,.25));
+}
+
+.pricing {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100%;
+  padding-bottom: 56px;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.pricing-hero h1 {
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.1;
+  margin: 8px 0 8px;
+}
+
+.pricing-hero p {
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+
+.billing-toggle {
+  display: inline-flex;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 999px;
+  padding: 6px;
+  gap: 6px;
+  box-shadow: 0 0 0 4px transparent;
+}
+
+.toggle-btn {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.toggle-btn.active {
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  color: var(--text);
+  box-shadow: 0 0 0 2px var(--ring) inset;
+}
+.pill {
+  background: rgba(0,229,193,.12);
+  color: var(--primary);
+  padding: 2px 8px;
+  border-radius: 24px;
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Carrousel */
+.pricing-rail-wrap {
+  margin-top: 8px;
+}
+.pricing-rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 85%;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 8px 16px 24px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.pricing-rail::-webkit-scrollbar { display: none; }
+@media (min-width: 768px) {
+  .pricing-rail { grid-auto-columns: 46%; }
+}
+@media (min-width: 1100px) {
+  .pricing-rail { grid-auto-columns: 32%; }
+}
+.pricing-rail.ready .price-card { opacity: 1; transform: translateY(0); }
+
+/* Cartes */
+.price-card {
+  position: relative;
+  background: linear-gradient(180deg, var(--card), var(--card-2));
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 20px;
+  padding: 20px;
+  scroll-snap-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .3s ease, transform .3s ease, border-color .2s ease;
+}
+.price-card.popular {
+  border-color: rgba(0,229,193,.35);
+  box-shadow:
+    0 0 0 1px rgba(0,229,193,.25) inset,
+    0 16px 40px rgba(0,229,193,.12);
+}
+
+.price-head {
+  display: flex; align-items: center; gap: 6px; justify-content: space-between;
+}
+.brand-dot { width:10px; height:10px; border-radius:50%; background: #2ce5c3; opacity:.35 }
+.brand-dot:nth-child(1){background:#2ce5c3}
+.brand-dot:nth-child(2){background:#4de5ff}
+.brand-dot:nth-child(3){background:#a86bff}
+
+.badge {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 700;
+  color: #061218;
+  background: var(--primary);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+.price-figure {
+  display: flex; align-items: flex-end; gap: 8px;
+  margin: 16px 0 6px;
+}
+.currency { font-size: 18px; opacity: .7; transform: translateY(-2px); }
+.amount { font-size: 56px; font-weight: 800; letter-spacing: -0.02em; }
+.per { font-size: 14px; font-weight: 600; color: var(--muted); margin-left: 6px; }
+
+.tagline { color: var(--muted); margin: 8px 0 14px; }
+
+.cta {
+  display: inline-block;
+  text-align: center;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 700;
+  background: var(--primary);
+  color: #051418;
+  text-decoration: none;
+  transition: transform .08s ease, filter .1s ease;
+}
+.cta:active { transform: translateY(1px) scale(.99); }
+
+.sep {
+  margin: 18px 0; border: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+}
+
+.section-title { font-size: 15px; opacity: .9; margin: 0 0 8px; }
+
+.features { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.features li { display: flex; align-items: flex-start; gap: 10px; color: var(--text); }
+.features svg { stroke: var(--primary); fill: none; stroke-width: 3; margin-top: 2px; }
+.features span { color: var(--text); opacity: .95; }
+
+/* Ruban -17% */
+.ribbon {
+  position: absolute;
+  top: 14px; right: -8px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-600));
+  color: #03171b;
+  font-weight: 800; font-size: 12px;
+  padding: 6px 12px;
+  border-top-left-radius: 8px; border-bottom-left-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,229,193,.25);
+}
+
+/* Hint */
+.swipe-hint {
+  text-align: center;
+  color: var(--muted);
+  margin: 10px 0 0;
+  font-size: 13px;
+}
