@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom';
+import React from 'react'
+import '../styles/global.css'
 export default function NotFound(){
-  return (
-    <section>
+  return (<section className="section">
+    <div className="card" style={{textAlign:'center'}}>
       <h1>404</h1>
       <p>Oups, page introuvable.</p>
-      <Link to="/">Retour à l’accueil</Link>
-    </section>
-  );
+      <a className="btn" href="/">Retour à l’accueil</a>
+    </div>
+  </section>)
 }

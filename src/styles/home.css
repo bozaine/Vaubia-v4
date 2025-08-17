@@ -1,12 +1,10 @@
-.hero{
-  padding:64px 0 32px;
-}
-.hero .headline{font-size:clamp(32px,6vw,56px);line-height:1.05;letter-spacing:-.02em}
-.hero p{max-width:700px;color:var(--muted);font-size:1.1rem}
-.pricing-carousel{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
-.pricing-carousel::-webkit-scrollbar{height:8px}
-.pricing-card{scroll-snap-align:center; min-width: 320px; max-width: 360px; padding:24px}
-.badge{font-size:.8rem; color:#111; background:var(--warning); padding:.25rem .6rem; border-radius:999px; font-weight:600}
-.price{font-weight:800; font-size:42px}
-.features{display:flex; flex-direction:column; gap:10px; color:var(--muted)}
-.features .tick{color:var(--accent); margin-right:8px}
+@import './global.css';
+.hero{padding:56px 0 24px}
+.hero h1{font-size:36px}
+.hero p{max-width:620px}
+.grid{display:grid;grid-template-columns:repeat(12, 1fr);gap:16px;margin-top:22px}
+.grid > *{grid-column:span 12}
+@media (min-width: 960px){.grid > .left{grid-column:span 7}.grid > .right{grid-column:span 5}}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.kpi{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);padding:14px 16px;border-radius:12px}
+.kpi strong{font-size:20px}

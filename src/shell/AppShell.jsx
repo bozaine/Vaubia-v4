@@ -1,23 +1,28 @@
-import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
-import './shell.css';
-
-export default function AppShell() {
-  return (
-    <>
-      <header className="topbar">
-        <nav className="container">
-          <Link to="/">Vaubia</Link>
-          <div className="spacer" />
-          <Link to="/pricing">Tarifs</Link>
-          <Link to="/login">Connexion</Link>
-          <Link to="/dashboard">Dashboard</Link>
+import React, { useState } from 'react'
+import { NavLink, Outlet } from 'react-router-dom'
+import '../styles/shell.css'
+export default function AppShell(){
+  const [open, setOpen] = useState(false)
+  return (<>
+    <header className="header">
+      <div className="container nav">
+        <div className="brand">Vaubia</div>
+        <nav className="menu" aria-label="Navigation principale">
+          <NavLink to="/" end>Accueil</NavLink>
+          <NavLink to="/pricing">Tarifs</NavLink>
+          <NavLink to="/login">Connexion</NavLink>
+          <NavLink to="/dashboard">Dashboard</NavLink>
         </nav>
-      </header>
-      <main className="page">
-        <Outlet />
-      </main>
-      <footer className="footer">© Vaubia</footer>
-    </>
-  );
+        <button className="burger" aria-label="Menu" onClick={()=>setOpen(v=>!v)}>☰</button>
+      </div>
+      <div className={`container mobile ${open?'open':''}`}>
+        <NavLink to="/" end onClick={()=>setOpen(false)}>Accueil</NavLink>
+        <NavLink to="/pricing" onClick={()=>setOpen(false)}>Tarifs</NavLink>
+        <NavLink to="/login" onClick={()=>setOpen(false)}>Connexion</NavLink>
+        <NavLink to="/dashboard" onClick={()=>setOpen(false)}>Dashboard</NavLink>
+      </div>
+    </header>
+    <main className="container"><Outlet /></main>
+    <footer>© Vaubia</footer>
+  </>)
 }

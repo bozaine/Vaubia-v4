@@ -1,1 +1,11 @@
-body{margin:0;padding:0}
+@import './theme.css';
+main{min-height:calc(100vh - 64px - 60px)}
+footer{height:60px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+h1,h2,h3{line-height:1.1;margin:0 0 12px}
+p{color:var(--muted);margin:0 0 16px}
+.card{background:var(--card);border-radius:var(--radius);padding:24px;border:1px solid rgba(255,255,255,.06);box-shadow:0 8px 30px rgba(0,0,0,.25)}
+.badge{background:rgba(124,92,255,.12);color:#cdbbff;padding:6px 10px;border-radius:999px;border:1px solid rgba(124,92,255,.3);font-weight:600;font-size:.8rem}
+.btn{display:inline-flex;align-items:center;gap:10px;border:none;border-radius:12px;padding:12px 16px;background:var(--brand);color:#fff;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(124,92,255,.35);transition:.2s}
+.btn:hover{filter:brightness(1.05)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.12);color:var(--text)}
+.section{padding:40px 0}
