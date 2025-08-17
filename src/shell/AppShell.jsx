@@ -1,35 +1,23 @@
-import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
-import '../styles/shell.css'
-import logo from '../assets/logo.svg'
+import React from 'react';
+import { Outlet, Link } from 'react-router-dom';
+import './shell.css';
 
-export default function AppShell(){
+export default function AppShell() {
   return (
     <>
       <header className="topbar">
-        <div className="container topnav">
-          <Link to="/" className="brand">
-            <img src={logo} alt="Vaubia logo"/>
-            <span>Vaubia</span>
-          </Link>
-          <nav className="navlinks">
-            <Link to="/pricing">Tarifs</Link>
-            <Link to="/dashboard">Dashboard</Link>
-            <Link to="/login" className="btn">Connexion</Link>
-          </nav>
-        </div>
+        <nav className="container">
+          <Link to="/">Vaubia</Link>
+          <div className="spacer" />
+          <Link to="/pricing">Tarifs</Link>
+          <Link to="/login">Connexion</Link>
+          <Link to="/dashboard">Dashboard</Link>
+        </nav>
       </header>
-
-      <main>
-        <Outlet/>
+      <main className="page">
+        <Outlet />
       </main>
-
-      <footer className="footer">
-        <div className="container" style={{display:'flex',justifyContent:'space-between'}}>
-          <span>© {new Date().getFullYear()} Vaubia</span>
-          <span><a href="/legal">Mentions légales</a></span>
-        </div>
-      </footer>
+      <footer className="footer">© Vaubia</footer>
     </>
-  )
+  );
 }
