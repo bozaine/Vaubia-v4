@@ -1,0 +1,78 @@
+/* -------- shell.css -------- */
+
+/* Container global */
+.app-container {
+  min-height: calc(100vh - 80px); /* espace pour le footer */
+  padding: 2rem;
+  background: var(--background);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Footer */
+.site-footer {
+  height: 80px;
+  padding: 1rem 2rem;
+  background: var(--surface);
+  border-top: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--primary);
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+  color: var(--primary-dark);
+}
+
+.site-footer small {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* -------- Mode sombre -------- */
+:root {
+  --background: #ffffff;
+  --surface: #f9f9f9;
+  --text: #1a1a1a;
+  --muted: #777;
+  --primary: #4a7dff;
+  --primary-dark: #345bd1;
+}
+
+[data-theme='dark'] {
+  --background: #121212;
+  --surface: #1e1e1e;
+  --text: #f1f1f1;
+  --muted: #aaa;
+  --primary: #4a7dff;
+  --primary-dark: #6b95ff;
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+
+  .footer-nav {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
